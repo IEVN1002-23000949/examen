@@ -1,0 +1,100 @@
+
+<div class="w-full p-4 bg-slate-50">
+
+  <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+
+    <div class="bg-slate-800 px-6 py-4">
+      <h2 class="text-xl font-bold text-white">
+        Detalle del pedido
+      </h2>
+    </div>
+
+    <div class="p-6">
+
+      <div class="overflow-x-auto border border-slate-200 rounded-lg">
+
+        <table class="w-full text-sm text-left text-slate-600">
+
+          <thead class="text-xs uppercase bg-slate-100 text-slate-700">
+
+            <tr>
+              <th class="px-4 py-3">Tamaño</th>
+              <th class="px-4 py-3">Ingredientes</th>
+              <th class="px-4 py-3">Num. Pizzas</th>
+              <th class="px-4 py-3">Subtotal</th>
+              <th class="px-4 py-3 text-center">Quitar</th>
+            </tr>
+
+          </thead>
+
+          <tbody class="divide-y divide-slate-200">
+
+            <tr *ngFor="let pizza of pizzas; let i = index">
+
+              <td class="px-4 py-3">
+                {{pizza.tamano}}
+              </td>
+
+              <td class="px-4 py-3">
+                {{pizza.ingredientes.join(', ')}}
+              </td>
+
+              <td class="px-4 py-3">
+                {{pizza.cantidad}}
+              </td>
+
+              <td class="px-4 py-3 font-semibold">
+                ${{pizza.subtotal}}
+              </td>
+
+              <td class="px-4 py-3 text-center">
+
+                <button
+                  type="button"
+                  (click)="eliminarPizza(i)"
+                  class="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-md">
+
+                  Quitar
+
+                </button>
+
+              </td>
+
+            </tr>
+
+            <tr *ngIf="pizzas.length === 0">
+
+              <td colspan="5" class="px-4 py-8 text-center text-slate-400">
+                No hay pizzas agregadas
+              </td>
+
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-between items-center mt-6 gap-4">
+
+        <h3 class="text-xl font-bold text-slate-800">
+          Total: ${{total}}
+        </h3>
+
+        <button
+          type="button"
+          (click)="terminarPedido()"
+          class="px-6 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-lg">
+
+          Terminar pedido
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

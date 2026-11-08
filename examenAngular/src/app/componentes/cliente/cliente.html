@@ -1,0 +1,173 @@
+
+<div class="w-full p-4 bg-slate-50">
+
+  <div class="max-w-7xl mx-auto bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden">
+
+    <div class="bg-slate-800 px-6 py-4">
+      <h1 class="text-xl font-bold text-white">
+        Datos del cliente y pedido
+      </h1>
+    </div>
+
+    <form [formGroup]="formulario" (ngSubmit)="agregar()" class="p-6">
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">
+            Nombre completo
+          </label>
+          <input
+            type="text"
+            formControlName="nombre_cliente"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none"
+            placeholder="Nombre del cliente"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">
+            Dirección
+          </label>
+          <input
+            type="text"
+            formControlName="direccion"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none"
+            placeholder="Dirección"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">
+            Teléfono
+          </label>
+          <input
+            type="tel"
+            formControlName="telefono"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none"
+            placeholder="Teléfono"
+          />
+        </div>
+
+        <div>
+          <label class="block text-sm font-semibold text-slate-700 mb-2">
+            Fecha de compra
+          </label>
+          <input
+            type="date"
+            formControlName="fecha_pedido"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none"
+          />
+        </div>
+
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- Tamaño de pizza -->
+        <div class="border border-slate-300 rounded-lg p-4">
+
+          <h3 class="font-bold text-slate-800 mb-3">
+            Tamaño de pizza
+          </h3>
+
+          <div class="space-y-3">
+
+            <label class="flex items-center gap-2">
+              <input
+                type="radio"
+                formControlName="tamano"
+                value="Chica"
+              />
+              Chica ($40)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input
+                type="radio"
+                formControlName="tamano"
+                value="Mediana"
+              />
+              Mediana ($80)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input
+                type="radio"
+                formControlName="tamano"
+                value="Grande"
+              />
+              Grande ($120)
+            </label>
+
+          </div>
+
+        </div>
+
+        <!-- Ingredientes -->
+        <div class="border border-slate-300 rounded-lg p-4">
+
+          <h3 class="font-bold text-slate-800 mb-3">
+            Ingredientes
+          </h3>
+
+          <div class="space-y-3">
+
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                formControlName="jamon"
+              />
+              Jamón ($10)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                formControlName="pina"
+              />
+              Piña ($10)
+            </label>
+
+            <label class="flex items-center gap-2">
+              <input
+                type="checkbox"
+                formControlName="champinones"
+              />
+              Champiñones ($10)
+            </label>
+
+          </div>
+
+        </div>
+
+        <!-- Cantidad -->
+        <div class="border border-slate-300 rounded-lg p-4">
+
+          <h3 class="font-bold text-slate-800 mb-3">
+            Número de pizzas
+          </h3>
+
+          <input
+            type="number"
+            formControlName="cantidad"
+            min="1"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-slate-500 outline-none"
+          />
+
+          <button
+            type="submit"
+            class="mt-5 w-full px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-lg transition duration-200"
+          >
+            Agregar pizza
+          </button>
+
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

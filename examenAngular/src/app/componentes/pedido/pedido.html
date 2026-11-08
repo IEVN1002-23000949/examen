@@ -1,0 +1,13 @@
+<div class="w-full">
+
+  <app-cliente
+    (agregarPizza)="agregarPizza($event)">
+  </app-cliente>
+
+  <app-detalle-pedido
+    [pizzas]="pizzas"
+    [datosCliente]="datosCliente"
+    (quitarPizza)="quitarPizza($event)">
+  </app-detalle-pedido>
+
+</div>
